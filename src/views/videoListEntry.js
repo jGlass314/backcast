@@ -12,12 +12,14 @@ var VideoListEntryView = Backbone.View.extend({
 
   handleClick: function() {
     //debugger;
-    console.log('call handleClick');
+    new VideoPlayerView({
+      el: $('body').find('.player')
+    }).render(this.model);
   },
 
   render: function() {
-    // console.log('this:',this);
-    this.$el.append(this.template(this.model.attributes));
+
+    this.$el.html(this.template(this.model.attributes));
     return this;
   },
 
